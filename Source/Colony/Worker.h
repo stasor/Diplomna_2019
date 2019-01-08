@@ -26,7 +26,17 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	void SetSuffocating(bool change);
+
 private:
+
+	UPROPERTY(EditAnywhere)
+		int32 Health;
+
+	UPROPERTY(EditAnywhere)
+		int32 HPDecreseSuffocate;
+
+	bool IsSuffocating;
 
 	UPROPERTY(VisibleAnywhere)
 		class UBoxComponent* Box;

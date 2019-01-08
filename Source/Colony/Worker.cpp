@@ -16,6 +16,8 @@ AWorker::AWorker()
 
 	Image = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Image"));
 	Image->SetupAttachment(Box);
+
+	IsSuffocating = false;
 }
 
 // Called when the game starts or when spawned
@@ -30,6 +32,14 @@ void AWorker::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	if (IsSuffocating) {
+		Health -= HPDecreseSuffocate * DeltaTime;
+	}
+
+	if (Health <= 0) {
+		Destroy();
+	}
+
 }
 
 // Called to bind functionality to input
@@ -37,5 +47,10 @@ void AWorker::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+}
+
+void AWorker::SetSuffocating(bool change)
+{
+	IsSuffocating = change;
 }
 
