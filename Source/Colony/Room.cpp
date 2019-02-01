@@ -36,10 +36,10 @@ void ARoom::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (CurrentO2 > 0.f) {
-		CurrentO2 -= O2Decrease * DeltaTime;
-	}
-	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, FString::Printf(TEXT("%f"), CurrentO2));
+	//if (CurrentO2 > 0.f) {
+		//CurrentO2 -= O2Decrease * DeltaTime;
+	//}
+	//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, FString::Printf(TEXT("%f"), CurrentO2));
 }
 
 void ARoom::OnBeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
